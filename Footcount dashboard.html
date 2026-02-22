@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discover Musanze — Northern Rwanda</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest:   #1A2E1E;
+  --moss:     #2D4A32;
+  --fern:     #3D6645;
+  --sage:     #7DAF82;
+  --mist:     #C8DEC9;
+  --cream:    #F6F1E9;
+  --parchment:#EDE5D4;
+  --earth:    #7A5C3A;
+  --volcano:  #C04A22;
+  --gold:     #C9993A;
+  --text:     #1C2A1E;
+  --muted:    #6B7F6D;
+  --white:    #FDFAF5;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── PAGES ─────────────────────────────────────────────── */
+.page { display: none; min-height: 100vh; }
+.page.active { display: block; animation: pageIn 0.5s ease; }
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── NAV ────────────────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 68px;
+  background: rgba(246,241,233,0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(125,175,130,0.2);
+  transition: background 0.3s;
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 700;
+  color: var(--forest); letter-spacing: 0.5px;
+  cursor: pointer;
+}
+.nav-logo em { color: var(--fern); font-style: italic; }
+
+.nav-links { display: flex; gap: 4px; }
+.nav-link {
+  background: none; border: none;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem; font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--muted);
+  padding: 8px 16px; border-radius: 40px;
+  cursor: pointer; transition: all 0.2s;
+}
+.nav-link:hover { color: var(--forest); background: rgba(61,102,69,0.08); }
+.nav-link.active { color: var(--white); background: var(--forest); }
+
+.nav-cta {
+  background: var(--volcano);
+  color: var(--white);
+  border: none; border-radius: 40px;
+  padding: 9px 22px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem; font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.nav-cta:hover { background: #a03a18; transform: translateY(-1px); }
+
+/* ── HERO ───────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  padding-top: 68px;
+  overflow: hidden;
+}
+
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 60px 80px 80px;
+  background: var(--forest);
+  position: relative; overflow: hidden;
+}
+.hero-left::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 80% 20%, rgba(61,102,69,0.6) 0%, transparent 60%),
+              radial-gradient(ellipse at 10% 90%, rgba(192,74,34,0.15) 0%, transparent 50%);
+}
+.hero-left::after {
+  content: '26°N';
+  position: absolute; bottom: 40px; left: 60px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 8rem; font-weight: 300;
+  color: rgba(255,255,255,0.04); line-height: 1;
+  letter-spacing: -4px;
+}
+
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.72rem; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--sage);
+  margin-bottom: 24px; position: relative;
+}
+.hero-eyebrow::before {
+  content: ''; display: block;
+  width: 32px; height: 1px; background: var(--sage);
+}
+
+.hero-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 6vw, 5.8rem);
+  font-weight: 300; line-height: 1.05;
+  color: var(--white); letter-spacing: -1px;
+  margin-bottom: 28px; position: relative;
+}
+.hero-h1 em { font-style: italic; color: var(--mist); font-weight: 300; }
+.hero-h1 strong { font-weight: 700; color: var(--sage); }
+
+.hero-desc {
+  font-size: 1rem; font-weight: 300; line-height: 1.8;
+  color: rgba(200,222,201,0.75); max-width: 380px;
+  margin-bottom: 44px; position: relative;
+}
+
+.hero-btns { display: flex; gap: 14px; position: relative; }
+.btn-hero-primary {
+  background: var(--volcano); color: var(--white);
+  border: none; border-radius: 4px;
+  padding: 14px 30px;
+  font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 600;
+  cursor: pointer; transition: all 0.2s;
+}
+.btn-hero-primary:hover { background: #a03a18; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(192,74,34,0.4); }
+
+.btn-hero-ghost {
+  background: rgba(255,255,255,0.07); color: var(--mist);
+  border: 1px solid rgba(200,222,201,0.25); border-radius: 4px;
+  padding: 14px 30px;
+  font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 400;
+  cursor: pointer; transition: all 0.2s;
+}
+.btn-hero-ghost:hover { background: rgba(255,255,255,0.12); border-color: var(--mist); }
+
+.hero-right {
+  position: relative; overflow: hidden;
+}
+
+.hero-mosaic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  height: 100%; gap: 3px;
+}
+
+.mosaic-cell {
+  position: relative; overflow: hidden;
+  display: flex; align-items: flex-end;
+}
+.mosaic-cell:first-child { grid-row: 1 / 3; }
+
+.mosaic-emoji {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: clamp(4rem, 8vw, 7rem);
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.3));
+  transition: transform 0.4s ease;
+}
+.mosaic-cell:hover .mosaic-emoji { transform: scale(1.08); }
+
+.mosaic-cell-label {
+  position: relative; z-index: 2;
+  padding: 12px 16px;
+  font-size: 0.7rem; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(255,255,255,0.85);
+  font-weight: 500;
+}
+
+.bg-vol { background: linear-gradient(160deg,#2A1810 0%,#5C2A16 60%,#8B3A1A 100%); }
+.bg-lake { background: linear-gradient(160deg,#0D2233 0%,#1A4060 60%,#2060A0 100%); }
+.bg-cult { background: linear-gradient(160deg,#1A180A 0%,#3A3210 60%,#6B5C1A 100%); }
+.bg-gorilla { background: linear-gradient(160deg,#0A1A10 0%,#1A3A22 60%,#2D5C36 100%); }
+.bg-twin { background: linear-gradient(160deg,#141E2A 0%,#1E3050 60%,#304878 100%); }
+
+/* ── STATS STRIP ────────────────────────────────────────── */
+.stats-strip {
+  background: var(--parchment);
+  border-top: 1px solid rgba(125,175,130,0.2);
+  border-bottom: 1px solid rgba(125,175,130,0.2);
+  display: grid; grid-template-columns: repeat(4, 1fr);
+}
+.stat-cell {
+  padding: 32px 40px;
+  border-right: 1px solid rgba(125,175,130,0.2);
+  text-align: center;
+}
+.stat-cell:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem; font-weight: 700;
+  color: var(--forest); line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── SECTION WRAPPER ────────────────────────────────────── */
+.section {
+  padding: 100px 80px;
+}
+.section-alt { background: var(--parchment); }
+
+.section-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--fern); margin-bottom: 16px;
+}
+.section-tag::before {
+  content: ''; display: block;
+  width: 24px; height: 1px; background: var(--fern);
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  font-weight: 600; line-height: 1.1; letter-spacing: -0.5px;
+  color: var(--forest); margin-bottom: 16px;
+}
+.section-title em { font-style: italic; color: var(--fern); }
+
+.section-subtitle {
+  font-size: 1rem; font-weight: 300; line-height: 1.8;
+  color: var(--muted); max-width: 520px; margin-bottom: 56px;
+}
+
+/* ── ATTRACTION CARDS ───────────────────────────────────── */
+.attractions-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+
+.attraction-card {
+  background: var(--white);
+  border-radius: 8px; overflow: hidden;
+  box-shadow: 0 2px 20px rgba(26,46,30,0.06);
+  cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;
+  animation: riseIn 0.5s ease both;
+}
+.attraction-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(26,46,30,0.12); }
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.card-visual {
+  height: 220px; position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 5rem;
+}
+.card-visual::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 60%);
+}
+.card-tag {
+  position: absolute; top: 14px; left: 14px; z-index: 2;
+  background: rgba(255,255,255,0.15); backdrop-filter: blur(8px);
+  color: white; font-size: 0.65rem; letter-spacing: 2px;
+  text-transform: uppercase; padding: 4px 10px; border-radius: 2px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.card-duration {
+  position: absolute; bottom: 14px; right: 14px; z-index: 2;
+  color: rgba(255,255,255,0.8); font-size: 0.72rem; letter-spacing: 1px;
+}
+
+.card-body { padding: 24px; }
+.card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-weight: 700; line-height: 1.2;
+  color: var(--forest); margin-bottom: 8px;
+}
+.card-excerpt {
+  font-size: 0.85rem; line-height: 1.7; color: var(--muted);
+  margin-bottom: 20px;
+}
+.card-footer {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.card-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 700; color: var(--volcano);
+}
+.card-price span { font-family: 'Outfit', sans-serif; font-size: 0.72rem; font-weight: 400; color: var(--muted); }
+
+.card-btn {
+  background: var(--forest); color: var(--white);
+  border: none; border-radius: 4px;
+  padding: 8px 18px;
+  font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600;
+  cursor: pointer; transition: background 0.2s;
+  letter-spacing: 0.3px;
+}
+.card-btn:hover { background: var(--fern); }
+
+/* ── FEATURED FULL-WIDTH ─────────────────────────────────── */
+.feature-block {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 560px; border-radius: 12px; overflow: hidden;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 40px rgba(26,46,30,0.12);
+}
+.feature-visual {
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10rem;
+  min-height: 400px;
+}
+.feature-visual::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--overlay-col, var(--forest));
+  opacity: 0.9;
+}
+.feature-content {
+  padding: 60px; display: flex; flex-direction: column;
+  justify-content: center; background: var(--white);
+}
+.feature-eyebrow {
+  font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--fern); margin-bottom: 16px;
+}
+.feature-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem; font-weight: 700; line-height: 1.15;
+  color: var(--forest); margin-bottom: 16px; letter-spacing: -0.5px;
+}
+.feature-text {
+  font-size: 0.95rem; line-height: 1.8; color: var(--muted);
+  margin-bottom: 28px;
+}
+.feature-facts {
+  display: flex; gap: 24px; margin-bottom: 32px;
+}
+.feat-fact {
+  display: flex; flex-direction: column; gap: 2px;
+}
+.fact-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 700; color: var(--forest); line-height: 1;
+}
+.fact-key {
+  font-size: 0.68rem; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--muted);
+}
+.feature-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--fern); font-size: 0.85rem; font-weight: 600;
+  letter-spacing: 0.5px; text-decoration: none;
+  cursor: pointer; transition: gap 0.2s;
+}
+.feature-link:hover { gap: 14px; }
+
+/* ── FAQ PAGE ────────────────────────────────────────────── */
+.faq-hero {
+  background: var(--forest); padding: 140px 80px 80px;
+  position: relative; overflow: hidden;
+}
+.faq-hero::before {
+  content: '?';
+  position: absolute; right: 10%; top: 50%; transform: translateY(-50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22rem; font-weight: 700; color: rgba(255,255,255,0.03);
+  line-height: 1; pointer-events: none;
+}
+.faq-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 5vw, 5rem); font-weight: 300;
+  color: var(--white); line-height: 1.05; letter-spacing: -1px;
+  margin-bottom: 16px; max-width: 600px;
+}
+.faq-hero-sub {
+  font-size: 1rem; color: rgba(200,222,201,0.65);
+  font-weight: 300; line-height: 1.7;
+}
+
+.faq-body { padding: 80px; display: grid; grid-template-columns: 260px 1fr; gap: 60px; }
+
+.faq-categories { position: sticky; top: 88px; align-self: start; }
+.faq-cat-title {
+  font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 16px;
+}
+.faq-cat-btn {
+  display: block; width: 100%; background: none; border: none;
+  text-align: left; padding: 10px 14px; border-radius: 4px;
+  font-family: 'Outfit', sans-serif; font-size: 0.88rem;
+  color: var(--muted); cursor: pointer; margin-bottom: 4px;
+  transition: all 0.2s; border-left: 2px solid transparent;
+}
+.faq-cat-btn:hover { color: var(--forest); background: rgba(61,102,69,0.06); }
+.faq-cat-btn.active {
+  color: var(--fern); font-weight: 600;
+  border-left-color: var(--fern);
+  background: rgba(61,102,69,0.06);
+}
+
+.faq-section { display: none; }
+.faq-section.active { display: block; animation: pageIn 0.3s ease; }
+
+.faq-section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem; font-weight: 700;
+  color: var(--forest); margin-bottom: 32px;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(125,175,130,0.2);
+  overflow: hidden;
+}
+
+.faq-q {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 0; cursor: pointer;
+  font-size: 1rem; font-weight: 500; color: var(--text);
+  transition: color 0.2s;
+  gap: 16px;
+}
+.faq-q:hover { color: var(--fern); }
+.faq-q.open { color: var(--fern); }
+
+.faq-icon {
+  width: 28px; height: 28px; flex-shrink: 0;
+  border: 1.5px solid rgba(125,175,130,0.4); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; font-weight: 300; color: var(--fern);
+  transition: transform 0.3s, background 0.2s;
+}
+.faq-q.open .faq-icon { transform: rotate(45deg); background: var(--fern); color: white; }
+
+.faq-answer {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.3s;
+  font-size: 0.9rem; line-height: 1.85; color: var(--muted);
+  padding: 0;
+}
+.faq-answer.open { max-height: 400px; padding-bottom: 20px; }
+
+/* ── GALLERY PAGE ────────────────────────────────────────── */
+.gallery-hero {
+  background: var(--moss); padding: 140px 80px 80px;
+}
+.gallery-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 5vw, 5rem); font-weight: 300;
+  color: var(--white); margin-bottom: 16px;
+}
+.gallery-hero-title em { font-style: italic; color: var(--mist); }
+.gallery-hero-sub { color: rgba(200,222,201,0.65); font-size: 1rem; font-weight: 300; }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px;
+  gap: 4px;
+  margin: 0;
+}
+.gallery-cell {
+  position: relative; overflow: hidden; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.2s;
+}
+.gallery-cell:hover .gallery-overlay { opacity: 1; }
+.gallery-cell.wide { grid-column: span 2; }
+.gallery-cell.tall { grid-row: span 2; }
+
+.gallery-emoji {
+  font-size: 5rem;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.4));
+  transition: transform 0.4s ease;
+}
+.gallery-cell:hover .gallery-emoji { transform: scale(1.12); }
+
+.gallery-overlay {
+  position: absolute; inset: 0;
+  background: rgba(26,46,30,0.65);
+  opacity: 0; transition: opacity 0.3s;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  color: white; text-align: center; padding: 20px;
+}
+.gallery-overlay h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 700; margin-bottom: 6px;
+}
+.gallery-overlay p { font-size: 0.78rem; color: rgba(255,255,255,0.75); line-height: 1.5; }
+
+/* ── PLAN PAGE ───────────────────────────────────────────── */
+.plan-hero {
+  background: linear-gradient(135deg, var(--earth) 0%, var(--forest) 60%);
+  padding: 140px 80px 80px;
+}
+.plan-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 5vw, 5rem); font-weight: 300;
+  color: var(--white); margin-bottom: 16px;
+}
+.plan-hero-title em { font-style: italic; color: #F5C87A; }
+.plan-hero-sub { color: rgba(255,255,255,0.6); font-size: 1rem; font-weight: 300; }
+
+.plan-body { padding: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+
+.itinerary { }
+.itin-day {
+  display: flex; gap: 24px; margin-bottom: 36px;
+  animation: riseIn 0.5s ease both;
+}
+.itin-day:nth-child(2) { animation-delay: 0.1s; }
+.itin-day:nth-child(3) { animation-delay: 0.2s; }
+.itin-day:nth-child(4) { animation-delay: 0.3s; }
+
+.day-num {
+  flex-shrink: 0;
+  width: 48px; height: 48px;
+  background: var(--forest); color: var(--white);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 700;
+}
+.day-content {}
+.day-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 700;
+  color: var(--forest); margin-bottom: 4px;
+}
+.day-sub {
+  font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--fern); margin-bottom: 10px;
+}
+.day-text {
+  font-size: 0.88rem; line-height: 1.8; color: var(--muted);
+}
+.day-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.day-tag {
+  font-size: 0.68rem; letter-spacing: 0.5px;
+  background: rgba(61,102,69,0.1); color: var(--fern);
+  border: 1px solid rgba(61,102,69,0.2); border-radius: 2px;
+  padding: 3px 10px;
+}
+
+.practical-info {}
+.info-card {
+  background: var(--white); border-radius: 8px;
+  padding: 28px; margin-bottom: 20px;
+  box-shadow: 0 2px 20px rgba(26,46,30,0.06);
+}
+.info-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 700;
+  color: var(--forest); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.info-card-title span { font-size: 1.4rem; }
+.info-list { list-style: none; }
+.info-list li {
+  font-size: 0.85rem; color: var(--muted); line-height: 1.7;
+  padding: 6px 0; border-bottom: 1px solid rgba(125,175,130,0.1);
+  display: flex; justify-content: space-between;
+}
+.info-list li:last-child { border-bottom: none; }
+.info-list li strong { color: var(--text); font-weight: 500; }
+
+/* ── FOOTER ─────────────────────────────────────────────── */
+footer {
+  background: var(--forest); padding: 60px 80px 40px;
+  color: rgba(200,222,201,0.6);
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px; margin-bottom: 48px;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 700;
+  color: var(--white); margin-bottom: 12px;
+}
+.footer-brand em { font-style: italic; color: var(--sage); }
+.footer-desc { font-size: 0.85rem; line-height: 1.7; font-weight: 300; }
+.footer-col h4 {
+  font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--sage); margin-bottom: 16px;
+}
+.footer-col a {
+  display: block; font-size: 0.85rem; color: rgba(200,222,201,0.55);
+  text-decoration: none; margin-bottom: 8px; cursor: pointer;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--mist); }
+.footer-bottom {
+  border-top: 1px solid rgba(125,175,130,0.1);
+  padding-top: 24px; display: flex; justify-content: space-between;
+  font-size: 0.75rem; color: rgba(200,222,201,0.3);
+  letter-spacing: 0.5px;
+}
+
+/* ── TOAST ───────────────────────────────────────────────── */
+.toast {
+  position: fixed; bottom: 28px; right: 28px; z-index: 500;
+  background: var(--forest); color: var(--white);
+  padding: 14px 22px; border-radius: 4px;
+  font-size: 0.85rem; font-weight: 400; line-height: 1.5;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  transform: translateY(80px); opacity: 0;
+  transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+  border-left: 3px solid var(--sage);
+  max-width: 280px;
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { height: 50vw; }
+  .hero-left { padding: 60px 40px; }
+  .attractions-grid { grid-template-columns: 1fr 1fr; }
+  .section { padding: 60px 40px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .plan-body { grid-template-columns: 1fr; }
+  .faq-body { grid-template-columns: 1fr; }
+  .faq-categories { position: static; }
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+}
+@media (max-width: 700px) {
+  .hero-h1 { font-size: 3rem; }
+  .section { padding: 50px 24px; }
+  .attractions-grid { grid-template-columns: 1fr; }
+  .feature-block { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .stats-strip { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .faq-body, .plan-body { padding: 40px 24px; }
+  .faq-hero, .gallery-hero, .plan-hero { padding: 120px 24px 60px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" onclick="showPage('home')">Discover <em>Musanze</em></div>
+  <div class="nav-links">
+    <button class="nav-link active" id="nl-home"       onclick="showPage('home')">Home</button>
+    <button class="nav-link"        id="nl-attractions" onclick="showPage('attractions')">Attractions</button>
+    <button class="nav-link"        id="nl-gallery"    onclick="showPage('gallery')">Gallery</button>
+    <button class="nav-link"        id="nl-plan"       onclick="showPage('plan')">Plan Your Visit</button>
+    <button class="nav-link"        id="nl-faq"        onclick="showPage('faq')">FAQ</button>
+  </div>
+  <button class="nav-cta" onclick="showToast('Booking system coming soon! Contact us at info@musanzetourism.rw')">Book a Guide</button>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE: HOME
+═══════════════════════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Northern Rwanda · 1,544m above sea level</div>
+      <h1 class="hero-h1">Where <em>volcanoes</em> meet <strong>culture</strong></h1>
+      <p class="hero-desc">
+        Musanze sits at the foot of the Virunga volcanoes — Africa's most dramatic landscape. Home to mountain gorillas, crater lakes, and centuries-old Rwandan heritage.
+      </p>
+      <div class="hero-btns">
+        <button class="btn-hero-primary" onclick="showPage('attractions')">Explore Attractions</button>
+        <button class="btn-hero-ghost"   onclick="showPage('plan')">Plan Your Trip →</button>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-mosaic">
+        <div class="mosaic-cell bg-vol">
+          <div class="mosaic-emoji">🌋</div>
+          <div class="mosaic-cell-label">Virunga Volcanoes</div>
+        </div>
+        <div class="mosaic-cell bg-gorilla">
+          <div class="mosaic-emoji">🦍</div>
+          <div class="mosaic-cell-label">Mountain Gorillas</div>
+        </div>
+        <div class="mosaic-cell bg-lake">
+          <div class="mosaic-emoji">💧</div>
+          <div class="mosaic-cell-label">Lake Ruhondo</div>
+        </div>
+        <div class="mosaic-cell bg-cult">
+          <div class="mosaic-emoji">🎭</div>
+          <div class="mosaic-cell-label">Cultural Heritage</div>
+        </div>
+        <div class="mosaic-cell bg-twin">
+          <div class="mosaic-emoji">🏔️</div>
+          <div class="mosaic-cell-label">Twin Lakes</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-strip">
+    <div class="stat-cell">
+      <div class="stat-num">480+</div>
+      <div class="stat-label">Mountain Gorillas</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">5</div>
+      <div class="stat-label">Virunga Volcanoes</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">160km²</div>
+      <div class="stat-label">National Park</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">1544m</div>
+      <div class="stat-label">Altitude</div>
+    </div>
+  </div>
+
+  <!-- FEATURED HIGHLIGHT -->
+  <div class="section">
+    <div class="section-tag">Editor's Pick</div>
+    <div class="section-title">Don't miss <em>gorilla trekking</em></div>
+    <div class="section-subtitle">A once-in-a-lifetime encounter with mountain gorillas in their natural habitat. Volcanoes National Park is one of the only places on Earth where this is possible.</div>
+
+    <div class="feature-block">
+      <div class="feature-visual bg-gorilla">
+        <div style="font-size:10rem;position:relative;z-index:1">🦍</div>
+      </div>
+      <div class="feature-content">
+        <div class="feature-eyebrow">Volcanoes National Park · Gorilla Trekking</div>
+        <h3 class="feature-title">Face-to-face with Earth's last mountain gorillas</h3>
+        <p class="feature-text">Spend an unforgettable hour in the presence of habituated mountain gorilla families deep in the bamboo forests of the Virunga massif. Expert rangers guide every trek for your safety and comfort.</p>
+        <div class="feature-facts">
+          <div class="feat-fact">
+            <span class="fact-val">1 hr</span>
+            <span class="fact-key">With gorillas</span>
+          </div>
+          <div class="feat-fact">
+            <span class="fact-val">12</span>
+            <span class="fact-key">Gorilla families</span>
+          </div>
+          <div class="feat-fact">
+            <span class="fact-val">$1,500</span>
+            <span class="fact-key">Permit fee</span>
+          </div>
+        </div>
+        <span class="feature-link" onclick="showPage('attractions')">Read Full Guide →</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK CARDS -->
+  <div class="section section-alt">
+    <div class="section-tag">Top Attractions</div>
+    <div class="section-title">Discover <em>Musanze</em></div>
+    <div class="section-subtitle">From volcanic peaks to serene crater lakes — every corner of Musanze holds a new wonder.</div>
+    <div class="attractions-grid">
+      <div class="attraction-card" style="animation-delay:0s">
+        <div class="card-visual bg-vol">
+          <div style="font-size:5rem;position:relative;z-index:1">🌋</div>
+          <span class="card-tag">Adventure</span>
+          <span class="card-duration">Full day</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Volcanoes National Park</div>
+          <p class="card-excerpt">Trek through ancient lava fields and dense bamboo forests to see mountain gorillas, golden monkeys, and sweeping volcanic views.</p>
+          <div class="card-footer">
+            <div class="card-price">$1,500 <span>/ permit</span></div>
+            <button class="card-btn" onclick="showPage('attractions')">Explore</button>
+          </div>
+        </div>
+      </div>
+      <div class="attraction-card" style="animation-delay:0.1s">
+        <div class="card-visual bg-lake">
+          <div style="font-size:5rem;position:relative;z-index:1">💧</div>
+          <span class="card-tag">Nature</span>
+          <span class="card-duration">Half day</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Lake Ruhondo</div>
+          <p class="card-excerpt">A stunning crater lake framed by rolling hills and papyrus reeds. Ideal for boat rides, birdwatching, and peaceful lakeside walks.</p>
+          <div class="card-footer">
+            <div class="card-price">Free <span>/ entry</span></div>
+            <button class="card-btn" onclick="showPage('attractions')">Explore</button>
+          </div>
+        </div>
+      </div>
+      <div class="attraction-card" style="animation-delay:0.2s">
+        <div class="card-visual bg-cult">
+          <div style="font-size:5rem;position:relative;z-index:1">🎭</div>
+          <span class="card-tag">Culture</span>
+          <span class="card-duration">3–4 hours</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Iby'Iwacu Cultural Village</div>
+          <p class="card-excerpt">Experience traditional Rwandan life — watch Intore dancers, craft artisans, and community storytellers in this living heritage village.</p>
+          <div class="card-footer">
+            <div class="card-price">$35 <span>/ person</span></div>
+            <button class="card-btn" onclick="showPage('attractions')">Explore</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Discover <em>Musanze</em></div>
+        <p class="footer-desc">Your complete guide to exploring Northern Rwanda's most spectacular destination — from volcanic treks to cultural immersion.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a onclick="showPage('attractions')">Attractions</a>
+        <a onclick="showPage('gallery')">Photo Gallery</a>
+        <a onclick="showPage('plan')">Itineraries</a>
+        <a onclick="showPage('faq')">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Sites</h4>
+        <a>Volcanoes Park</a>
+        <a>Lake Ruhondo</a>
+        <a>Twin Lakes</a>
+        <a>Musanze Caves</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a>info@musanzetourism.rw</a>
+        <a>+250 788 000 000</a>
+        <a>Musanze, Rwanda</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Musanze Tourism. All rights reserved.</span>
+      <span>Made with ❤️ in Rwanda</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE: ATTRACTIONS
+═══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-attractions">
+  <div style="background:var(--moss);padding:140px 80px 80px;position:relative;overflow:hidden">
+    <div style="position:absolute;right:80px;top:50%;transform:translateY(-50%);font-size:14rem;opacity:0.06;line-height:1">🌍</div>
+    <div class="section-tag" style="color:var(--mist)">All Attractions</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5vw,5rem);font-weight:300;color:var(--white);line-height:1.05;letter-spacing:-1px;margin-bottom:16px;max-width:600px">The wonders of <em style="font-style:italic;color:var(--mist)">Northern Rwanda</em></h1>
+    <p style="font-size:1rem;color:rgba(200,222,201,0.65);font-weight:300;max-width:500px;line-height:1.7">From UNESCO-listed gorilla habitats to ancient crater lakes and vibrant cultural villages — Musanze is a destination unlike any other.</p>
+  </div>
+
+  <div class="section">
+    <!-- VNP -->
+    <div class="feature-block" style="margin-bottom:60px">
+      <div class="feature-visual" style="--overlay-col:#2A1810;background:linear-gradient(160deg,#2A1810,#7A2510)">
+        <div style="font-size:10rem;position:relative;z-index:1">🌋</div>
+      </div>
+      <div class="feature-content">
+        <div class="feature-eyebrow">Must-See · UNESCO World Heritage</div>
+        <h3 class="feature-title">Volcanoes National Park</h3>
+        <p class="feature-text">
+          Established in 1925 as Africa's first national park, Volcanoes National Park shelters five dormant volcanoes — Karisimbi, Bisoke, Muhabura, Gahinga, and Sabyinyo. The park is the most reliable place on Earth to trek with habituated mountain gorilla families, and is also home to golden monkeys, forest elephants, and more than 178 bird species.
+        </p>
+        <div class="feature-facts">
+          <div class="feat-fact"><span class="fact-val">160km²</span><span class="fact-key">Park area</span></div>
+          <div class="feat-fact"><span class="fact-val">4,507m</span><span class="fact-key">Mt Karisimbi</span></div>
+          <div class="feat-fact"><span class="fact-val">12</span><span class="fact-key">Gorilla families</span></div>
+        </div>
+        <span class="feature-link" onclick="showToast('🌋 Gorilla trekking starts at 7:00 AM from Park HQ in Kinigi')">Get Trekking Tips →</span>
+      </div>
+    </div>
+
+    <!-- LAKE RUHONDO -->
+    <div class="feature-block" style="margin-bottom:60px">
+      <div class="feature-content">
+        <div class="feature-eyebrow">Hidden Gem · Lake District</div>
+        <h3 class="feature-title">Lake Ruhondo</h3>
+        <p class="feature-text">
+          Tucked into the volcanic hills north of Musanze, Lake Ruhondo is one of Rwanda's most serene and least-visited gems. Canoe tours weave through papyrus swamps where rare birds nest. The surrounding hills offer spectacular views of the Virunga range at dusk, turning the lake a molten gold as the sun drops behind the volcanoes.
+        </p>
+        <div class="feature-facts">
+          <div class="feat-fact"><span class="fact-val">8km</span><span class="fact-key">Length</span></div>
+          <div class="feat-fact"><span class="fact-val">40+</span><span class="fact-key">Bird species</span></div>
+          <div class="feat-fact"><span class="fact-val">Free</span><span class="fact-key">Entry</span></div>
+        </div>
+        <span class="feature-link" onclick="showToast('💧 Best sunrise views at Lake Ruhondo: arrive by 5:45 AM')">Plan Your Visit →</span>
+      </div>
+      <div class="feature-visual" style="background:linear-gradient(160deg,#0D2233,#2060A0)">
+        <div style="font-size:10rem;position:relative;z-index:1">💧</div>
+      </div>
+    </div>
+
+    <!-- CULTURAL -->
+    <div class="feature-block" style="margin-bottom:60px">
+      <div class="feature-visual" style="background:linear-gradient(160deg,#1A180A,#6B5C1A)">
+        <div style="font-size:10rem;position:relative;z-index:1">🎭</div>
+      </div>
+      <div class="feature-content">
+        <div class="feature-eyebrow">Culture · Heritage · Community</div>
+        <h3 class="feature-title">Iby'Iwacu Cultural Village</h3>
+        <p class="feature-text">
+          Iby'Iwacu — meaning "From Our Home" in Kinyarwanda — is a community-run cultural village near the park entrance. Former poachers and hunters now serve as guides and performers, sharing Rwandan traditions through Intore war dances, traditional medicine walks, basketweaving demonstrations, and communal meals prepared over open fire.
+        </p>
+        <div class="feature-facts">
+          <div class="feat-fact"><span class="fact-val">3–4h</span><span class="fact-key">Visit length</span></div>
+          <div class="feat-fact"><span class="fact-val">$35</span><span class="fact-key">Per person</span></div>
+          <div class="feat-fact"><span class="fact-val">100%</span><span class="fact-key">Community owned</span></div>
+        </div>
+        <span class="feature-link" onclick="showToast('🎭 Book Iby\'Iwacu at least 2 days in advance for group visits')">Book a Visit →</span>
+      </div>
+    </div>
+
+    <!-- MORE GRID -->
+    <div class="section-tag">Also Worth Visiting</div>
+    <div class="section-title" style="margin-bottom:40px">More of <em>Musanze</em></div>
+    <div class="attractions-grid">
+      <div class="attraction-card">
+        <div class="card-visual bg-twin">
+          <div style="font-size:5rem;position:relative;z-index:1">🏔️</div>
+          <span class="card-tag">Nature</span><span class="card-duration">Half day</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Twin Lakes: Burera & Ruhondo</div>
+          <p class="card-excerpt">Two interconnected crater lakes separated by a narrow ridge. Canoe between them and stay in eco-lodges perched on the hillside above.</p>
+          <div class="card-footer">
+            <div class="card-price">Free <span>/ entry</span></div>
+            <button class="card-btn" onclick="showToast('🏔️ Twin Lakes are best reached by moto-taxi from Musanze town')">Details</button>
+          </div>
+        </div>
+      </div>
+      <div class="attraction-card">
+        <div class="card-visual" style="background:linear-gradient(160deg,#1A0A0A,#4A1A1A)">
+          <div style="font-size:5rem;position:relative;z-index:1">🕳️</div>
+          <span class="card-tag">Adventure</span><span class="card-duration">2 hours</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Musanze Caves</div>
+          <p class="card-excerpt">A network of ancient lava tubes stretching over 2km underground, formed by volcanic activity thousands of years ago. Guided torch-lit tours available daily.</p>
+          <div class="card-footer">
+            <div class="card-price">$10 <span>/ person</span></div>
+            <button class="card-btn" onclick="showToast('🕳️ Wear closed shoes and bring a jacket — caves stay at 15°C')">Details</button>
+          </div>
+        </div>
+      </div>
+      <div class="attraction-card">
+        <div class="card-visual" style="background:linear-gradient(160deg,#0A1A10,#2D5C36)">
+          <div style="font-size:5rem;position:relative;z-index:1">🐒</div>
+          <span class="card-tag">Wildlife</span><span class="card-duration">Full day</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Golden Monkey Trekking</div>
+          <p class="card-excerpt">Track the playful, endemic golden monkey through bamboo forests. A lighter alternative to gorilla trekking, with a more agile and acrobatic subject!</p>
+          <div class="card-footer">
+            <div class="card-price">$100 <span>/ permit</span></div>
+            <button class="card-btn" onclick="showToast('🐒 Golden monkey treks depart at 7:00 AM — arrive 30 mins early')">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Discover <em>Musanze</em></div>
+        <p class="footer-desc">Your complete guide to exploring Northern Rwanda's most spectacular destination.</p>
+      </div>
+      <div class="footer-col"><h4>Pages</h4>
+        <a onclick="showPage('home')">Home</a>
+        <a onclick="showPage('gallery')">Gallery</a>
+        <a onclick="showPage('plan')">Plan Visit</a>
+        <a onclick="showPage('faq')">FAQ</a>
+      </div>
+      <div class="footer-col"><h4>Attractions</h4>
+        <a>Volcanoes Park</a><a>Lake Ruhondo</a><a>Twin Lakes</a><a>Musanze Caves</a>
+      </div>
+      <div class="footer-col"><h4>Contact</h4>
+        <a>info@musanzetourism.rw</a><a>+250 788 000 000</a>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Musanze Tourism.</span><span>Made with ❤️ in Rwanda</span></div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE: GALLERY
+═══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-gallery">
+  <div class="gallery-hero">
+    <div class="section-tag" style="color:var(--mist)">Visual Journey</div>
+    <h1 class="gallery-hero-title">Musanze through <em>the lens</em></h1>
+    <p class="gallery-hero-sub">From misty volcanic mornings to golden lake sunsets — glimpses of what awaits you.</p>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-cell wide tall bg-vol">
+      <div class="gallery-emoji">🌋</div>
+      <div class="gallery-overlay">
+        <h3>Karisimbi at Dawn</h3>
+        <p>The highest Virunga volcano at 4,507m, draped in morning mist</p>
+      </div>
+    </div>
+    <div class="gallery-cell bg-gorilla">
+      <div class="gallery-emoji">🦍</div>
+      <div class="gallery-overlay"><h3>Silverback</h3><p>A dominant male in Volcanoes NP</p></div>
+    </div>
+    <div class="gallery-cell bg-lake">
+      <div class="gallery-emoji">🛶</div>
+      <div class="gallery-overlay"><h3>Lake Ruhondo</h3><p>Canoe through papyrus swamps</p></div>
+    </div>
+    <div class="gallery-cell bg-cult wide">
+      <div class="gallery-emoji">🎭</div>
+      <div class="gallery-overlay"><h3>Intore Dance</h3><p>Traditional Rwandan warrior dance at Iby'Iwacu Village</p></div>
+    </div>
+    <div class="gallery-cell" style="background:linear-gradient(160deg,#0A1A10,#2D5C36)">
+      <div class="gallery-emoji">🐒</div>
+      <div class="gallery-overlay"><h3>Golden Monkey</h3><p>Endemic to the Virunga mountains</p></div>
+    </div>
+    <div class="gallery-cell" style="background:linear-gradient(160deg,#0D2233,#2060A0)">
+      <div class="gallery-emoji">🌅</div>
+      <div class="gallery-overlay"><h3>Lake Sunset</h3><p>Twin Lakes at golden hour</p></div>
+    </div>
+    <div class="gallery-cell" style="background:linear-gradient(160deg,#1A0A0A,#4A1A1A)">
+      <div class="gallery-emoji">🕳️</div>
+      <div class="gallery-overlay"><h3>Musanze Caves</h3><p>Ancient lava tube formations</p></div>
+    </div>
+    <div class="gallery-cell" style="background:linear-gradient(160deg,#100A1A,#3A1A5C)">
+      <div class="gallery-emoji">🌿</div>
+      <div class="gallery-overlay"><h3>Bamboo Forest</h3><p>Gorilla habitat at 2,400m altitude</p></div>
+    </div>
+    <div class="gallery-cell wide" style="background:linear-gradient(160deg,#1A1A0A,#5C5A1A)">
+      <div class="gallery-emoji">🧺</div>
+      <div class="gallery-overlay"><h3>Rwandan Crafts</h3><p>Traditional Agaseke peace baskets woven by local artisans</p></div>
+    </div>
+    <div class="gallery-cell" style="background:linear-gradient(160deg,#0A1A1A,#1A5C5A)">
+      <div class="gallery-emoji">🦅</div>
+      <div class="gallery-overlay"><h3>Birdwatching</h3><p>Over 200 bird species in the park</p></div>
+    </div>
+    <div class="gallery-cell" style="background:linear-gradient(160deg,#1A0A10,#5C1A3A)">
+      <div class="gallery-emoji">🏡</div>
+      <div class="gallery-overlay"><h3>Local Village</h3><p>Traditional Rwandan homesteads near Musanze</p></div>
+    </div>
+  </div>
+
+  <footer style="margin-top:4px">
+    <div class="footer-grid">
+      <div><div class="footer-brand">Discover <em>Musanze</em></div><p class="footer-desc">Your guide to Northern Rwanda.</p></div>
+      <div class="footer-col"><h4>Pages</h4><a onclick="showPage('home')">Home</a><a onclick="showPage('attractions')">Attractions</a><a onclick="showPage('plan')">Plan Visit</a><a onclick="showPage('faq')">FAQ</a></div>
+      <div class="footer-col"><h4>Contact</h4><a>info@musanzetourism.rw</a></div>
+      <div class="footer-col"><h4>Social</h4><a>Instagram</a><a>Facebook</a><a>TripAdvisor</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Musanze Tourism.</span><span>Made with ❤️ in Rwanda</span></div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE: PLAN
+═══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-plan">
+  <div class="plan-hero">
+    <div class="section-tag" style="color:#F5C87A">Your Itinerary</div>
+    <h1 class="plan-hero-title">Plan your <em>perfect</em> visit</h1>
+    <p class="plan-hero-sub">From a quick weekend escape to a full immersion — here's how to make the most of Musanze.</p>
+  </div>
+
+  <div class="plan-body">
+    <div class="itinerary">
+      <div class="section-tag">5-Day Suggested Itinerary</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--forest);margin-bottom:36px">The Complete Musanze Experience</h2>
+
+      <div class="itin-day">
+        <div class="day-num">1</div>
+        <div class="day-content">
+          <div class="day-title">Arrival & Orientation</div>
+          <div class="day-sub">Musanze Town & Surroundings</div>
+          <p class="day-text">Arrive in Musanze (2.5 hours from Kigali). Check into your lodge, explore the lively Musanze market, and enjoy dinner with views of the Virunga skyline. Visit the Musanze Caves in the afternoon for an easy warm-up activity.</p>
+          <div class="day-tags"><span class="day-tag">🕳️ Musanze Caves</span><span class="day-tag">🛒 Local Market</span><span class="day-tag">🍽️ Dinner in Town</span></div>
+        </div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-num">2</div>
+        <div class="day-content">
+          <div class="day-title">Gorilla Trekking</div>
+          <div class="day-sub">Volcanoes National Park</div>
+          <p class="day-text">The highlight of any Musanze visit. Depart Park HQ at 7:00 AM with your ranger group. Treks last 2–8 hours depending on gorilla location. Spend your magical allotted hour with a gorilla family before descending for a celebration lunch.</p>
+          <div class="day-tags"><span class="day-tag">🦍 Gorilla Trek</span><span class="day-tag">🌋 Volcano Views</span><span class="day-tag">📷 Photography</span></div>
+        </div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-num">3</div>
+        <div class="day-content">
+          <div class="day-title">Lakes & Wildlife</div>
+          <div class="day-sub">Lake Ruhondo & Golden Monkeys</div>
+          <p class="day-text">Morning golden monkey trek in the bamboo forest (departing 7:00 AM). Afternoon canoe trip on Lake Ruhondo through papyrus beds. Birdwatchers will be in heaven — over 40 species on the lake alone.</p>
+          <div class="day-tags"><span class="day-tag">🐒 Golden Monkey Trek</span><span class="day-tag">🛶 Lake Canoe</span><span class="day-tag">🦅 Birdwatching</span></div>
+        </div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-num">4</div>
+        <div class="day-content">
+          <div class="day-title">Culture & Heritage</div>
+          <div class="day-sub">Iby'Iwacu & Twin Lakes</div>
+          <p class="day-text">Spend the morning at Iby'Iwacu Cultural Village — watch Intore dances, try traditional archery, and share a meal with the community. Afternoon drive to Twin Lakes Burera and Ruhondo for panoramic views.</p>
+          <div class="day-tags"><span class="day-tag">🎭 Iby'Iwacu Village</span><span class="day-tag">🏔️ Twin Lakes</span><span class="day-tag">🍲 Traditional Meal</span></div>
+        </div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-num">5</div>
+        <div class="day-content">
+          <div class="day-title">Volcano Hike & Departure</div>
+          <div class="day-sub">Mt Bisoke or Muhabura</div>
+          <p class="day-text">For the adventurous: hike Mt Bisoke (3,711m, ~6 hours) to a crater lake at the summit. Or opt for a scenic drive through tea plantations before heading back to Kigali in the afternoon.</p>
+          <div class="day-tags"><span class="day-tag">🏔️ Mt Bisoke Hike</span><span class="day-tag">🍃 Tea Plantations</span><span class="day-tag">🚌 Return to Kigali</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical-info">
+      <div class="section-tag">Practical Information</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--forest);margin-bottom:36px">Before You Go</h2>
+
+      <div class="info-card">
+        <div class="info-card-title"><span>✈️</span> Getting There</div>
+        <ul class="info-list">
+          <li><span>From Kigali</span><strong>2.5 hrs by bus or car</strong></li>
+          <li><span>Nearest airport</span><strong>Kigali International (KGL)</strong></li>
+          <li><span>Bus departs</span><strong>Nyabugogo terminal, Kigali</strong></li>
+          <li><span>Cost</span><strong>~RWF 2,500 by bus</strong></li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-title"><span>🌤️</span> Best Time to Visit</div>
+        <ul class="info-list">
+          <li><span>Dry season</span><strong>Jun–Sep, Dec–Feb</strong></li>
+          <li><span>Gorilla trekking</span><strong>Year-round</strong></li>
+          <li><span>Avoid</span><strong>Mar–May (heavy rains)</strong></li>
+          <li><span>Altitude temp</span><strong>15–24°C daily</strong></li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-title"><span>🎒</span> What to Pack</div>
+        <ul class="info-list">
+          <li><span>For trekking</span><strong>Waterproof boots, gloves</strong></li>
+          <li><span>Clothing</span><strong>Long sleeves, rain jacket</strong></li>
+          <li><span>Essentials</span><strong>Sunscreen, insect repellent</strong></li>
+          <li><span>Documents</span><strong>Passport, permit confirmation</strong></li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-title"><span>💰</span> Budget Guide</div>
+        <ul class="info-list">
+          <li><span>Gorilla permit</span><strong>$1,500 USD</strong></li>
+          <li><span>Golden monkey</span><strong>$100 USD</strong></li>
+          <li><span>Cultural village</span><strong>$35 USD</strong></li>
+          <li><span>Budget lodge</span><strong>From $30/night</strong></li>
+          <li><span>Luxury lodge</span><strong>$300–700/night</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div><div class="footer-brand">Discover <em>Musanze</em></div><p class="footer-desc">Your guide to Northern Rwanda's most spectacular destination.</p></div>
+      <div class="footer-col"><h4>Pages</h4><a onclick="showPage('home')">Home</a><a onclick="showPage('attractions')">Attractions</a><a onclick="showPage('gallery')">Gallery</a><a onclick="showPage('faq')">FAQ</a></div>
+      <div class="footer-col"><h4>Quick Links</h4><a>Gorilla Permits</a><a>Eco-Lodges</a><a>Tour Operators</a></div>
+      <div class="footer-col"><h4>Contact</h4><a>info@musanzetourism.rw</a><a>+250 788 000 000</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Musanze Tourism.</span><span>Made with ❤️ in Rwanda</span></div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE: FAQ
+═══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-faq">
+  <div class="faq-hero">
+    <div class="section-tag" style="color:var(--mist)">Got Questions?</div>
+    <h1 class="faq-hero-title">Everything you need to know before you go</h1>
+    <p class="faq-hero-sub">Answers to the most common questions from visitors planning their Musanze adventure.</p>
+  </div>
+
+  <div class="faq-body">
+    <!-- CATEGORY NAV -->
+    <div class="faq-categories">
+      <div class="faq-cat-title">Categories</div>
+      <button class="faq-cat-btn active" onclick="showFaqCat('general', this)">🌍 General</button>
+      <button class="faq-cat-btn" onclick="showFaqCat('gorillas', this)">🦍 Gorilla Trekking</button>
+      <button class="faq-cat-btn" onclick="showFaqCat('logistics', this)">🚌 Getting There</button>
+      <button class="faq-cat-btn" onclick="showFaqCat('safety', this)">🛡️ Safety & Health</button>
+      <button class="faq-cat-btn" onclick="showFaqCat('culture', this)">🎭 Culture & Etiquette</button>
+    </div>
+
+    <!-- FAQ SECTIONS -->
+    <div class="faq-questions">
+
+      <!-- GENERAL -->
+      <div class="faq-section active" id="faq-general">
+        <div class="faq-section-title">General Questions</div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>What is Musanze best known for?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer">Musanze (formerly Ruhengeri) is world-famous for gorilla trekking in Volcanoes National Park — one of the few places on Earth where mountain gorillas can be seen in their natural habitat. Beyond gorillas, the city is also celebrated for its dramatic volcanic scenery, crater lakes like Ruhondo and Burera, the Musanze Caves, and vibrant Rwandan cultural experiences.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>When is the best time to visit Musanze?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer">The best times to visit are during Rwanda's two dry seasons: June to September and December to February. The long dry season (June–September) offers the most reliable trekking conditions with drier trail surfaces. However, gorilla trekking is available year-round, and many visitors find the green season (March–May) beautiful despite the rains — the park is lush, misty, and uncrowded.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>How many days should I spend in Musanze?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer">We recommend a minimum of 3 days: Day 1 for arrival and the Musanze Caves, Day 2 for gorilla trekking, and Day 3 for cultural or lake activities. Five days allows you to experience gorilla trekking, golden monkey trekking, Lake Ruhondo, Iby'Iwacu Cultural Village, and a volcano hike comfortably.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>Is Musanze safe for tourists?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer">Yes — Rwanda is consistently ranked one of Africa's safest travel destinations. Musanze is a welcoming city with low crime rates. All gorilla and golden monkey treks are led by experienced armed park rangers. Solo travelers, families, and senior visitors all explore Musanze safely every day. Standard travel precautions apply, as they would anywhere.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>What currency is used and can I use cards?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer">Rwanda's currency is the Rwandan Franc (RWF). Most hotels and larger restaurants in Musanze accept Visa and Mastercard. ATMs are available in town. Gorilla permits and park fees can be paid in USD. We recommend carrying some cash in RWF for local markets, moto-taxis, and smaller eateries.</div>
+        </div>
+      </div>
+
+      <!-- GORILLAS -->
+      <div class="faq-section" id="faq-gorillas">
+        <div class="faq-section-title">Gorilla Trekking</div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>How do I get a gorilla trekking permit?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer">Gorilla trekking permits for Volcanoes National Park cost $1,500 USD per person and must be booked in advance through the Rwanda Development Board (RDB) at rdb.rw or through licensed tour operators. Permits sell out months in advance for peak season — we strongly recommend booking at least 3–6 months ahead. Only 96 permits are issued daily across 8 gorilla groups.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>How physically demanding is gorilla trekking?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer">Treks range from 1 to 8 hours depending on where the gorilla family has settled that day. The terrain is steep, dense, and often muddy. You should be in reasonable physical health and comfortable walking at altitude (2,400–3,000m). Porters are available at the trailhead for a small fee (~$15) and can carry your pack or even provide physical assistance on steep sections. People aged 15+ can participate.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>How long do I spend with the gorillas?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer">You spend exactly one hour with the gorilla family, which is strictly enforced to minimize stress on the animals. This limit exists to protect gorilla health and behavioral patterns. Though it sounds short, one hour with a gorilla family — watching them groom, play, and go about their day — is transformative and deeply emotional.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>What should I wear for gorilla trekking?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer">Wear long-sleeved shirts and long trousers (even on warm days — to protect against nettles and insects), sturdy waterproof hiking boots with ankle support, a rain jacket, and gardening gloves for grabbing vegetation. Pack light: a small daypack with water, snacks, a camera, and sunscreen. Avoid bright colors and perfume near the gorillas.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>Can I photograph the gorillas?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer">Yes, photography is permitted and encouraged! Keep your camera on silent mode (no flash), and maintain the required 7-meter distance. Experienced photographers love early morning treks when soft mist light filters through the forest canopy. Video is also allowed. Tripods are generally impractical on the trails.</div>
+        </div>
+      </div>
+
+      <!-- LOGISTICS -->
+      <div class="faq-section" id="faq-logistics">
+        <div class="faq-section-title">Getting There & Around</div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>How do I get from Kigali to Musanze?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer">The most popular options are: (1) Private car or taxi — approximately 2–2.5 hours via the well-paved RN4 highway, costing $60–100 for a private transfer. (2) Public bus from Nyabugogo Bus Terminal in Kigali — reliable, frequent, and costs around RWF 2,500 (~$2.50). Journey takes about 2.5–3 hours. (3) Tour operator vehicle — recommended if you have a gorilla permit, as operators can arrange door-to-door service.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>How do I get around in Musanze?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer">The most popular and affordable local transport is moto-taxi (motorcycle taxi), which costs RWF 500–2,000 for rides around town and to nearby attractions. Car hire with driver is available for full-day excursions to the lakes and national park. Most lodges can arrange airport pickups and guided day trips. Walking is pleasant for exploring Musanze town itself.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>Is there accommodation in Musanze to suit all budgets?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer">Absolutely. Musanze offers a wide range of accommodation: budget guesthouses from $20–40/night, comfortable mid-range hotels at $60–120/night, and world-class luxury eco-lodges (such as Bisate Lodge and One&Only Gorilla's Nest) from $300–700+/night. We recommend booking well in advance during peak season (June–September), especially for luxury properties.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>Is there internet and mobile connectivity?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer">MTN Rwanda and Airtel Rwanda provide good 4G coverage in Musanze town and most lodges. Signal is weak or absent deep inside the national park. Most hotels and restaurants offer WiFi. Consider purchasing a local SIM card at Kigali airport (available from $2–5 with data packages) for reliable and affordable connectivity during your trip.</div>
+        </div>
+      </div>
+
+      <!-- SAFETY -->
+      <div class="faq-section" id="faq-safety">
+        <div class="faq-section-title">Safety & Health</div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>Do I need vaccinations to visit Rwanda?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer">Yellow Fever vaccination is mandatory for entry into Rwanda and you must carry proof of vaccination. Routine vaccinations (tetanus, hepatitis A/B, typhoid) are recommended. Malaria prophylaxis is advised — Musanze is at altitude and lower risk than other areas, but precautions are still worthwhile. Consult a travel health clinic 4–6 weeks before departure.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>Do I need travel insurance?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer">Yes, comprehensive travel insurance is strongly recommended and required by most tour operators. Ensure your policy covers emergency medical evacuation, trip cancellation (gorilla permits are typically non-refundable), and adventure activities including hiking. Medical facilities in Musanze are limited for serious emergencies — evacuation to Kigali may be required.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>Are there any rules when near gorillas?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer">Yes, strict rules protect both gorillas and visitors: maintain at least 7 meters distance at all times, no flash photography, do not eat or drink in the gorilla presence, wear a surgical mask if you have any illness (rangers provide these), do not make sudden movements or loud noises, follow ranger instructions at all times, and never block the gorillas' path. These rules exist to protect animals that share 98.3% of human DNA.</div>
+        </div>
+      </div>
+
+      <!-- CULTURE -->
+      <div class="faq-section" id="faq-culture">
+        <div class="faq-section-title">Culture & Etiquette</div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>What are some important cultural customs to know?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer">Rwandans are warm and hospitable. Greet elders respectfully — a handshake or gentle bow is appropriate. Remove shoes before entering someone's home. Plastic bags are banned in Rwanda (enforce this strictly at the airport too). Dress modestly outside resort areas — avoid very short shorts or revealing clothing. Tipping is appreciated but not always expected; 10% is a kind gesture at restaurants.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>What language is spoken in Musanze?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer">Kinyarwanda is the official local language. English is widely spoken in tourism, hotels, and national parks. French is also common among older generations. Learning a few Kinyarwanda phrases goes a long way — "Muraho" (hello), "Murakoze" (thank you), and "Amakuru?" (how are you?) are always warmly received by locals.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>What souvenirs should I look for?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer">Rwanda is famous for its traditional Agaseke peace baskets — intricate woven baskets with geometric patterns, produced by women's cooperatives. Other popular souvenirs include imigongo (geometric cow dung art), wooden carvings, locally produced coffee and tea, and hand-painted fabrics. The Musanze town market and Iby'Iwacu cultural village are excellent places to buy authentic, fairly-traded goods.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>What Rwandan food should I try in Musanze?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer">Don't miss brochettes (grilled meat skewers), ubugali (cassava or maize dough), isombe (cassava leaves with groundnut sauce), and imineke (grilled plantains). For breakfast, try mandazi (fried dough) with Rwanda's incredible locally grown coffee. The Chez Lando and Inzu Lodge restaurants in Musanze serve excellent traditional Rwandan set menus at very reasonable prices.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div><div class="footer-brand">Discover <em>Musanze</em></div><p class="footer-desc">Everything you need to plan the perfect Northern Rwanda adventure.</p></div>
+      <div class="footer-col"><h4>Pages</h4><a onclick="showPage('home')">Home</a><a onclick="showPage('attractions')">Attractions</a><a onclick="showPage('gallery')">Gallery</a><a onclick="showPage('plan')">Plan Visit</a></div>
+      <div class="footer-col"><h4>Resources</h4><a>RDB Permits</a><a>Ministry of Tourism</a><a>RwandAir</a></div>
+      <div class="footer-col"><h4>Contact</h4><a>info@musanzetourism.rw</a><a>+250 788 000 000</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Musanze Tourism.</span><span>Made with ❤️ in Rwanda</span></div>
+  </footer>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ── PAGE ROUTING ─────────────────────────────────────────
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  const nl = document.getElementById('nl-' + id);
+  if (nl) nl.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── FAQ ACCORDION ─────────────────────────────────────────
+function toggleFaq(questionEl) {
+  const isOpen = questionEl.classList.contains('open');
+  // close all in this section
+  const section = questionEl.closest('.faq-section');
+  section.querySelectorAll('.faq-q').forEach(q => {
+    q.classList.remove('open');
+    q.nextElementSibling.classList.remove('open');
+  });
+  // open clicked if it was closed
+  if (!isOpen) {
+    questionEl.classList.add('open');
+    questionEl.nextElementSibling.classList.add('open');
+  }
+}
+
+// ── FAQ CATEGORIES ────────────────────────────────────────
+function showFaqCat(cat, btn) {
+  document.querySelectorAll('.faq-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.faq-cat-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('faq-' + cat).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── TOAST ─────────────────────────────────────────────────
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+// ── SCROLL-TRIGGERED ANIMATIONS ──────────────────────────
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.animationPlayState = 'running';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.attraction-card, .itin-day').forEach(el => {
+  el.style.animationPlayState = 'paused';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>

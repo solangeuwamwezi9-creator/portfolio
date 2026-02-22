@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UWAMWEZI SOLANGE | Frontend Developer</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">US<span>.</span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#calculator">Calculator</a>
+        <a href="#cv">CV</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+          <span class="theme-icon">☀️</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero" id="home">
+      <div class="hero-bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+      </div>
+      <div class="hero-container">
+        <div class="hero-content">
+          <span class="hero-label">👋 Hello, I'm</span>
+          <h1 class="hero-name">UWAMWEZI<br /><em>SOLANGE</em></h1>
+          <p class="hero-role">Junior Frontend Developer</p>
+          <p class="hero-tagline">Crafting clean, responsive web interfaces that turn ideas into real digital experiences — one thoughtful line of code at a time.</p>
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn btn-outline">Get In Touch</a>
+          </div>
+        </div>
+        <div class="hero-image-wrapper">
+          <div class="hero-image-frame">
+            <div class="profile-placeholder">
+             <img src="assets/images/soso.jpeg" alt="my image">
+            </div>
+          </div>
+          <div class="hero-badge">
+            <span>🎓 Year II CS</span>
+          </div>
+        </div>
+      </div>
+      <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+        <span class="scroll-line"></span>
+      </a>
+    </section>
+
+    <!-- ========== ABOUT SECTION ========== -->
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">01 — About</span>
+          <h2 class="section-title">Who I Am</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-text">
+            <p class="about-intro">
+              I'm a passionate Computer Science student at <strong>INES-Ruhengeri</strong>, currently in my second year of the FEB Day Program. Born and raised in Rwanda, I'm driven by the belief that great technology can solve real community problems.
+            </p>
+            <p>
+              My journey into web development started with curiosity about how websites work. Today, that curiosity has transformed into a dedicated practice of building clean, accessible, and performant web interfaces. I enjoy the intersection of design thinking and technical precision.
+            </p>
+            <p>
+              My goal is to grow into a full-stack developer, contributing to digital solutions that serve Rwandan communities — starting right here in Musanze.
+            </p>
+            <div class="about-info-grid">
+              <div class="info-item">
+                <span class="info-label">Program</span>
+                <span class="info-value">BSc Computer Science — Year II</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">University</span>
+                <span class="info-value">INES-Ruhengeri</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Location</span>
+                <span class="info-value">Musanze, Rwanda 🇷🇼</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Available</span>
+                <span class="info-value">Open to Internships</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-skills-preview">
+            <h3>Core Competencies</h3>
+            <div class="skills-tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Responsive Design</span>
+              <span class="tag">Git & GitHub</span>
+              <span class="tag">Bootstrap</span>
+              <span class="tag">Flexbox</span>
+              <span class="tag">DOM Manipulation</span>
+              <span class="tag">UI Design</span>
+              <span class="tag">Problem Solving</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SKILLS SECTION ========== -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">02 — Skills</span>
+          <h2 class="section-title">Technical Stack</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-icon">🌐</div>
+            <h3>HTML5</h3>
+            <p>Semantic markup, accessibility, and well-structured document layouts</p>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="88">
+                <span class="skill-percent">88%</span>
+              </div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">🎨</div>
+            <h3>CSS3</h3>
+            <p>Flexbox, Grid, animations, media queries, and responsive design</p>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="82">
+                <span class="skill-percent">82%</span>
+              </div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">⚡</div>
+            <h3>JavaScript</h3>
+            <p>DOM manipulation, event handling, form validation, and logic</p>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="70">
+                <span class="skill-percent">70%</span>
+              </div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">🐙</div>
+            <h3>GitHub</h3>
+            <p>Version control, meaningful commits, branching, and repository management</p>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="75">
+                <span class="skill-percent">75%</span>
+              </div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">🅱️</div>
+            <h3>Bootstrap</h3>
+            <p>Utility classes, component library, and rapid prototyping</p>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="65">
+                <span class="skill-percent">65%</span>
+              </div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">📐</div>
+            <h3>UI Design</h3>
+            <p>Layout principles, color theory, typography, and design consistency</p>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="60">
+                <span class="skill-percent">60%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PROJECTS SECTION ========== -->
+    <section class="section projects" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">03 — Projects</span>
+          <h2 class="section-title">Real Work</h2>
+        </div>
+        <div class="projects-grid">
+
+          <article class="project-card">
+            <div class="project-image">
+              <div class="project-image-placeholder">
+                <span>🛒</span>
+              </div>
+              <div class="project-overlay">
+                <a href="js/Musanze%20market.html" class="btn" target="_blank" rel="noopener">View Musanze market</a>
+                <a href="#" class="project-link" target="_blank" rel="noopener">View on GitHub ↗</a>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-meta">
+                <span class="project-tag">HTML</span>
+                <span class="project-tag">CSS</span>
+                <span class="project-tag">JavaScript</span>
+              </div>
+              <h3>Local Market E-Commerce UI</h3>
+              <p class="project-problem"><strong>Problem:</strong> Local Musanze vendors lacked a digital presence to reach customers beyond foot traffic.</p>
+              <p>Designed and built a responsive product listing page with filtering, a shopping cart UI, and checkout form — all in pure HTML, CSS, and vanilla JS. No frameworks used.</p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image">
+              <div class="project-image-placeholder">
+                <span>📚</span>
+              </div>
+              <div class="project-overlay">
+                <a href="Academic dashboard.html" class="btn" target="_blank" rel="noopener">View Academic Dashboard</a>
+                <a href="#" class="project-link" target="_blank" rel="noopener">View on GitHub ↗</a>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-meta">
+                <span class="project-tag">HTML</span>
+                <span class="project-tag">CSS</span>
+                <span class="project-tag">Bootstrap</span>
+              </div>
+              <h3>Student Academic Dashboard</h3>
+              <p class="project-problem"><strong>Problem:</strong> Students struggled to visualize their performance trends across courses each semester.</p>
+              <p>Created a static academic dashboard showing grade summaries, course progress bars, and a timetable layout. Fully responsive using Bootstrap grid and custom overrides.</p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image">
+              <div class="project-image-placeholder">
+                <span>🗺️</span>
+              </div>
+              <div class="project-overlay">
+                <a href="Musanze tourism.html" class="btn" target="_blank" rel="noopener">View Musanze Tourism</a>
+                <a href="#" class="project-link" target="_blank" rel="noopener">View on GitHub ↗</a>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-meta">
+                <span class="project-tag">HTML</span>
+                <span class="project-tag">CSS</span>
+                <span class="project-tag">JavaScript</span>
+              </div>
+              <h3>Musanze Tourist Info Site</h3>
+              <p class="project-problem"><strong>Problem:</strong> Tourists visiting Musanze had limited access to organized local attraction guides.</p>
+              <p>Built a multi-page informational site featuring Volcanoes National Park, Lake Ruhondo, and cultural heritage sites. Includes an interactive FAQ section powered by DOM manipulation.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CALCULATOR SECTION ========== -->
+    <section class="section calculator-section" id="calculator">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">04 — Tool</span>
+          <h2 class="section-title">Student GPA Calculator</h2>
+          <p class="section-subtitle">Enter your course marks to calculate your GPA and academic classification</p>
+        </div>
+        <div class="calculator-wrapper">
+          <div class="calculator-card">
+            <div class="calc-courses" id="courseInputs">
+              <div class="course-row">
+                <div class="calc-field">
+                  <label>Course Name</label>
+                  <input type="text" class="course-name" placeholder="e.g. Web Design" />
+                </div>
+                <div class="calc-field calc-field--small">
+                  <label>Credits</label>
+                  <input type="number" class="course-credits" placeholder="3" min="1" max="6" />
+                </div>
+                <div class="calc-field calc-field--small">
+                  <label>Mark (%)</label>
+                  <input type="number" class="course-mark" placeholder="75" min="0" max="100" />
+                </div>
+                <button class="remove-row" onclick="removeRow(this)" aria-label="Remove course">✕</button>
+              </div>
+            </div>
+            <div class="calc-actions">
+              <button class="btn btn-outline" id="addCourse">+ Add Course</button>
+              <button class="btn btn-primary" id="calculateGPA">Calculate GPA</button>
+            </div>
+            <div class="calc-error" id="calcError"></div>
+            <div class="calc-result" id="calcResult">
+              <div class="result-gpa">
+                <span class="result-label">Your GPA</span>
+                <span class="result-value" id="gpaValue">—</span>
+              </div>
+              <div class="result-class">
+                <span class="result-label">Classification</span>
+                <span class="result-badge" id="classValue">—</span>
+              </div>
+              <div class="result-summary" id="resultSummary"></div>
+            </div>
+          </div>
+          <div class="calc-guide">
+            <h4>Grading Scale</h4>
+            <div class="grade-table">
+              <div class="grade-row header">
+                <span>Mark Range</span>
+                <span>GPA Points</span>
+                <span>Grade</span>
+              </div>
+              <div class="grade-row">
+                <span>85 – 100%</span>
+                <span>4.0</span>
+                <span class="grade-badge a">A</span>
+              </div>
+              <div class="grade-row">
+                <span>75 – 84%</span>
+                <span>3.5</span>
+                <span class="grade-badge b">B+</span>
+              </div>
+              <div class="grade-row">
+                <span>65 – 74%</span>
+                <span>3.0</span>
+                <span class="grade-badge b">B</span>
+              </div>
+              <div class="grade-row">
+                <span>55 – 64%</span>
+                <span>2.5</span>
+                <span class="grade-badge c">C+</span>
+              </div>
+              <div class="grade-row">
+                <span>45 – 54%</span>
+                <span>2.0</span>
+                <span class="grade-badge c">C</span>
+              </div>
+              <div class="grade-row">
+                <span>Below 45%</span>
+                <span>0.0</span>
+                <span class="grade-badge f">F</span>
+              </div>
+            </div>
+            <div class="classification-guide">
+              <h4>Classification</h4>
+              <p><strong>First Class:</strong> GPA ≥ 3.6</p>
+              <p><strong>Upper Second:</strong> GPA ≥ 3.0</p>
+              <p><strong>Lower Second:</strong> GPA ≥ 2.5</p>
+              <p><strong>Pass:</strong> GPA ≥ 2.0</p>
+              <p><strong>Fail:</strong> GPA &lt; 2.0</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CV SECTION ========== -->
+    <section class="section cv-section" id="cv">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">05 — CV</span>
+          <h2 class="section-title">Curriculum Vitae</h2>
+        </div>
+        <div class="cv-layout">
+          <div class="cv-preview" id="cvPreview">
+            <div class="cv-header">
+              <div class="cv-name-block">
+                <h2>UWAMWEZISOLANGE</h2>
+                <p>Frontend Developer | BSc Computer Science — Year II</p>
+              </div>
+              <div class="cv-contact-block">
+                <p> AWAMWEZI.SOLANGE@student.ines.ac.rw</p>
+                <p> +250 783572833</p>
+                <p> github.com/UWAMWEZISOLANGE</p>
+                <p> Musanze, Rwanda</p>
+              </div>
+            </div>
+            <div class="cv-body">
+              <div class="cv-col">
+                <div class="cv-block">
+                  <h3 class="cv-block-title">Education</h3>
+                  <div class="cv-entry">
+                    <span class="cv-date">2024 – Present</span>
+                    <strong>BSc Computer Science</strong>
+                    <p>INES-Ruhengeri, Musanze — Year II FEB</p>
+                  </div>
+                  <div class="cv-entry">
+                    <span class="cv-date">2021 – 2023</span>
+                    <strong>Rwanda National Exam (A-Level)</strong>
+                    <p>COMPUTER NETWORKING</p>
+                  </div>
+                </div>
+                <div class="cv-block">
+                  <h3 class="cv-block-title">Projects</h3>
+                  <div class="cv-entry">
+                    <strong>Local Market E-Commerce UI</strong>
+                    <p>HTML, CSS, JavaScript</p>
+                  </div>
+                  <div class="cv-entry">
+                    <strong>Student Academic Dashboard</strong>
+                    <p>HTML, CSS, Bootstrap</p>
+                  </div>
+                  <div class="cv-entry">
+                    <strong>Musanze Tourist Info Site</strong>
+                    <p>HTML, CSS, JavaScript</p>
+                  </div>
+                </div>
+              </div>
+              <div class="cv-col">
+                <div class="cv-block">
+                  <h3 class="cv-block-title">Technical Skills</h3>
+                  <div class="cv-skills-list">
+                    <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+                    <span>Bootstrap</span><span>Git</span><span>GitHub</span>
+                    <span>Responsive Design</span><span>DOM Manipulation</span>
+                  </div>
+                </div>
+                <div class="cv-block">
+                  <h3 class="cv-block-title">Languages</h3> 
+                  <div class="cv-entry">
+                    <p>🇷🇼 Kinyarwanda — Native</p>
+                    <p>🇬🇧 English — Professional</p>
+                    <p>rg Rugande — Intermediate</p>
+                  </div>
+                </div>
+                <div class="cv-block">
+                  <h3 class="cv-block-title">Soft Skills</h3>
+                  <div class="cv-skills-list">
+                    <span>Problem Solving</span>
+                    <span>Team Collaboration</span>
+                    <span>Attention to Detail</span>
+                    <span>Self-Directed Learning</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cv-download-panel">
+            <div class="cv-download-card">
+              <div class="cv-download-icon">📄</div>
+              <h3>Download My CV</h3>
+              <p>Get a full copy of my curriculum vitae in PDF format, ready for submission to employers and internship applications.</p>
+              <button class="btn btn-primary" id="downloadCV">Download CV (PDF)</button>
+              <p class="cv-note">* Opens print dialog to save as PDF</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT SECTION ========== -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">06 — Contact</span>
+          <h2 class="section-title">Let's Connect</h2>
+          <p class="section-subtitle">I'm open to internship opportunities, collaborations, and feedback. Reach out anytime.</p>
+        </div>
+        <div class="contact-layout">
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">📧</div>
+              <div>
+                <span class="contact-label">Email</span>
+                <a href=" UWAMWEZI.SOLANGE@student.ines.ac.rw">UWAMWEZI@.ines.ac.rw</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div>
+                <span class="contact-label">Phone</span>
+                <a href="tel:+250700000000">+250 783 572 833</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">🐙</div>
+              <div>
+                <span class="contact-label">GitHub</span>
+                <a href="https://github.com/solangeuwamwezi9-creator?tab=repositories" target="_blank" rel="noopener">github</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">💼</div>
+              <div>
+                <span class="contact-label">LinkedIn</span>
+                <a href="www.linkedin.com/in/solange-uwamwezi-3316723b2" target="_blank" rel="noopener">linkedin</a>
+              </div>
+            </div>
+          </div>
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="contactName">Full Name</label>
+              <input type="text" id="contactName" name="name" placeholder="John Ncuti" required />
+              <span class="field-error" id="nameError"></span>
+            </div>
+            <div class="form-group">
+              <label for="contactEmail">Email Address</label>
+              <input type="email" id="contactEmail" name="email" placeholder="john@example.com" required />
+              <span class="field-error" id="emailError"></span>
+            </div>
+            <div class="form-group">
+              <label for="contactSubject">Subject</label>
+              <input type="text" id="contactSubject" name="subject" placeholder="Internship Opportunity" required />
+              <span class="field-error" id="subjectError"></span>
+            </div>
+            <div class="form-group">
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" name="message" rows="5" placeholder="Hello UWAMWEZI, I'd like to discuss..." required></textarea>
+              <span class="field-error" id="messageError"></span>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">Send Message →</button>
+            <div class="form-success" id="formSuccess">
+              ✅ Thank you! Your message has been received. I'll get back to you soon.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="nav-logo">AC<span>.</span></span>
+          <p>Building the web, one line at a time.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="currentYear"></span>UWAMWEZI SOLANGE— INES-Ruhengeri, Musanze, Rwanda</p>
+        <p class="footer-tech">Built with HTML · CSS · JavaScript</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
